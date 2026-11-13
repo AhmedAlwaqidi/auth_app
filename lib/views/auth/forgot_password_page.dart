@@ -8,10 +8,7 @@ import 'reset_password_page.dart';
 class ForgotPasswordPage extends StatefulWidget {
   final AuthController controller;
 
-  const ForgotPasswordPage({
-    super.key,
-    required this.controller,
-  });
+  const ForgotPasswordPage({super.key, required this.controller});
 
   @override
   State<ForgotPasswordPage> createState() => _ForgotPasswordPageState();
@@ -74,13 +71,14 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
     final theme = Theme.of(context);
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Forgot Password'),
-      ),
+      appBar: AppBar(title: const Text('Forgot Password')),
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
+            padding: const EdgeInsets.symmetric(
+              horizontal: 24.0,
+              vertical: 16.0,
+            ),
             child: ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: 440),
               child: ListenableBuilder(
@@ -96,11 +94,15 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                         // Explanatory Simulation Card
                         Card(
                           elevation: 0,
-                          color: theme.colorScheme.primaryContainer.withValues(alpha: 0.4),
+                          color: theme.colorScheme.primaryContainer.withValues(
+                            alpha: 0.4,
+                          ),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
                             side: BorderSide(
-                              color: theme.colorScheme.primary.withValues(alpha: 0.3),
+                              color: theme.colorScheme.primary.withValues(
+                                alpha: 0.3,
+                              ),
                             ),
                           ),
                           child: Padding(
@@ -116,22 +118,26 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                                 const SizedBox(width: 12),
                                 Expanded(
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Text(
                                         'Simulated Verification Code',
-                                        style: theme.textTheme.titleSmall?.copyWith(
-                                          fontWeight: FontWeight.bold,
-                                          color: theme.colorScheme.primary,
-                                        ),
+                                        style: theme.textTheme.titleSmall
+                                            ?.copyWith(
+                                              fontWeight: FontWeight.bold,
+                                              color: theme.colorScheme.primary,
+                                            ),
                                       ),
                                       const SizedBox(height: 4),
                                       Text(
                                         'Enter your registered Academic ID or University Email. Since this is an offline simulation, a 6-digit code (demo code: 123456) will be generated for classroom demonstration.',
-                                        style: theme.textTheme.bodySmall?.copyWith(
-                                          color: theme.colorScheme.onSurface,
-                                          height: 1.4,
-                                        ),
+                                        style: theme.textTheme.bodySmall
+                                            ?.copyWith(
+                                              color:
+                                                  theme.colorScheme.onSurface,
+                                              height: 1.4,
+                                            ),
                                       ),
                                     ],
                                   ),

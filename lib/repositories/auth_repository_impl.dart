@@ -36,9 +36,11 @@ class AuthRepositoryImpl implements AuthRepository {
     final trimmedIdentifier = request.identifier.trim().toLowerCase();
 
     // Find user matching Academic ID or University Email
-    final index = _users.indexWhere((u) =>
-        u.academicId == request.identifier.trim() ||
-        u.universityEmail.toLowerCase() == trimmedIdentifier);
+    final index = _users.indexWhere(
+      (u) =>
+          u.academicId == request.identifier.trim() ||
+          u.universityEmail.toLowerCase() == trimmedIdentifier,
+    );
 
     if (index == -1) {
       return AuthResult.failure(
@@ -49,9 +51,7 @@ class AuthRepositoryImpl implements AuthRepository {
     final user = _users[index];
 
     if (user.password != request.password) {
-      return AuthResult.failure(
-        'Incorrect password. Please try again.',
-      );
+      return AuthResult.failure('Incorrect password. Please try again.');
     }
 
     return AuthResult.success(
@@ -110,9 +110,11 @@ class AuthRepositoryImpl implements AuthRepository {
     final trimmedIdentifier = identifier.trim().toLowerCase();
 
     // Verify student account exists
-    final index = _users.indexWhere((u) =>
-        u.academicId == identifier.trim() ||
-        u.universityEmail.toLowerCase() == trimmedIdentifier);
+    final index = _users.indexWhere(
+      (u) =>
+          u.academicId == identifier.trim() ||
+          u.universityEmail.toLowerCase() == trimmedIdentifier,
+    );
 
     if (index == -1) {
       return AuthResult.failure(
@@ -150,9 +152,11 @@ class AuthRepositoryImpl implements AuthRepository {
     }
 
     // Locate student account
-    final index = _users.indexWhere((u) =>
-        u.academicId == request.identifier.trim() ||
-        u.universityEmail.toLowerCase() == trimmedIdentifier);
+    final index = _users.indexWhere(
+      (u) =>
+          u.academicId == request.identifier.trim() ||
+          u.universityEmail.toLowerCase() == trimmedIdentifier,
+    );
 
     if (index == -1) {
       return AuthResult.failure(

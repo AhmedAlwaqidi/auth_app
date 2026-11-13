@@ -10,10 +10,7 @@ import 'register_page.dart';
 class LoginPage extends StatefulWidget {
   final AuthController controller;
 
-  const LoginPage({
-    super.key,
-    required this.controller,
-  });
+  const LoginPage({super.key, required this.controller});
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -65,7 +62,11 @@ class _LoginPageState extends State<LoginPage> {
         context: context,
         barrierDismissible: false,
         builder: (ctx) => AlertDialog(
-          icon: const Icon(Icons.check_circle_outline, color: Colors.green, size: 48),
+          icon: const Icon(
+            Icons.check_circle_outline,
+            color: Colors.green,
+            size: 48,
+          ),
           title: const Text('Login Successful'),
           content: Column(
             mainAxisSize: MainAxisSize.min,
@@ -121,7 +122,10 @@ class _LoginPageState extends State<LoginPage> {
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 20.0),
+            padding: const EdgeInsets.symmetric(
+              horizontal: 24.0,
+              vertical: 20.0,
+            ),
             child: ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: 420),
               child: ListenableBuilder(

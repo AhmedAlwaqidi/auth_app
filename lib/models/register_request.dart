@@ -11,4 +11,3 @@ class RegisterRequest {
     required this.password,
   });
 }
-

@@ -8,10 +8,7 @@ import '../../utils/form_validators.dart';
 class RegisterPage extends StatefulWidget {
   final AuthController controller;
 
-  const RegisterPage({
-    super.key,
-    required this.controller,
-  });
+  const RegisterPage({super.key, required this.controller});
 
   @override
   State<RegisterPage> createState() => _RegisterPageState();
@@ -107,13 +104,14 @@ class _RegisterPageState extends State<RegisterPage> {
     final theme = Theme.of(context);
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Create Account'),
-      ),
+      appBar: AppBar(title: const Text('Create Account')),
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
+            padding: const EdgeInsets.symmetric(
+              horizontal: 24.0,
+              vertical: 16.0,
+            ),
             child: ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: 440),
               child: ListenableBuilder(
@@ -198,8 +196,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           enabled: !isLoading,
                           decoration: InputDecoration(
                             labelText: 'Password',
-                            helperText:
-                                'Min 8 chars, at least 1 uppercase letter and 1 digit',
+                            helperText: 'Min 8 chars, at least 1 uppercase letter and 1 digit',
                             helperMaxLines: 2,
                             prefixIcon: const Icon(Icons.lock_outline),
                             border: const OutlineInputBorder(),
@@ -272,7 +269,10 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
                         if (_termsError != null)
                           Padding(
-                            padding: const EdgeInsets.only(left: 12.0, bottom: 8.0),
+                            padding: const EdgeInsets.only(
+                              left: 12.0,
+                              bottom: 8.0,
+                            ),
                             child: Text(
                               _termsError!,
                               style: TextStyle(

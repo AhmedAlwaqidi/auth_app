@@ -9,4 +9,3 @@ class ResetPasswordRequest {
     required this.newPassword,
   });
 }
-

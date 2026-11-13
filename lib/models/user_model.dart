@@ -29,4 +29,3 @@ class UserModel {
   String toString() =>
       'UserModel(fullName: $fullName, academicId: $academicId, universityEmail: $universityEmail)';
 }
-

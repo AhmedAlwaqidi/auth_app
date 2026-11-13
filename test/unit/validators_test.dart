@@ -58,17 +58,35 @@ void main() {
       expect(FormValidators.strongPassword(null), isNotNull);
       expect(FormValidators.strongPassword(''), isNotNull);
       expect(FormValidators.strongPassword('Pass1'), isNotNull); // too short
-      expect(FormValidators.strongPassword('password123'), isNotNull); // no uppercase
-      expect(FormValidators.strongPassword('PASSWORDABC'), isNotNull); // no digit
-      expect(FormValidators.strongPassword('Password1'), isNull); // valid 9 chars, upper, digit
-      expect(FormValidators.strongPassword('Secure99'), isNull); // valid 8 chars
+      expect(
+        FormValidators.strongPassword('password123'),
+        isNotNull,
+      ); // no uppercase
+      expect(
+        FormValidators.strongPassword('PASSWORDABC'),
+        isNotNull,
+      ); // no digit
+      expect(
+        FormValidators.strongPassword('Password1'),
+        isNull,
+      ); // valid 9 chars, upper, digit
+      expect(
+        FormValidators.strongPassword('Secure99'),
+        isNull,
+      ); // valid 8 chars
     });
 
     test('confirmPassword: must match original password exactly', () {
       expect(FormValidators.confirmPassword(null, 'Password123'), isNotNull);
       expect(FormValidators.confirmPassword('', 'Password123'), isNotNull);
-      expect(FormValidators.confirmPassword('Password124', 'Password123'), isNotNull);
-      expect(FormValidators.confirmPassword('Password123', 'Password123'), isNull);
+      expect(
+        FormValidators.confirmPassword('Password124', 'Password123'),
+        isNotNull,
+      );
+      expect(
+        FormValidators.confirmPassword('Password123', 'Password123'),
+        isNull,
+      );
     });
 
     test('resetIdentifier: accepts 9-10 digit academic ID or valid email', () {
@@ -91,4 +109,3 @@ void main() {
     });
   });
 }
-

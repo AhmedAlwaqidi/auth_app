@@ -72,7 +72,11 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
         context: context,
         barrierDismissible: false,
         builder: (dialogContext) => AlertDialog(
-          icon: const Icon(Icons.check_circle_outline, color: Colors.green, size: 48),
+          icon: const Icon(
+            Icons.check_circle_outline,
+            color: Colors.green,
+            size: 48,
+          ),
           title: const Text('Password Reset Successful'),
           content: const Text(
             'Your password has been successfully updated. You can now log in with your new credentials.',
@@ -110,13 +114,14 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
     final theme = Theme.of(context);
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Reset Password'),
-      ),
+      appBar: AppBar(title: const Text('Reset Password')),
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
+            padding: const EdgeInsets.symmetric(
+              horizontal: 24.0,
+              vertical: 16.0,
+            ),
             child: ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: 440),
               child: ListenableBuilder(
@@ -132,7 +137,8 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                         // Account summary header card
                         Card(
                           elevation: 0,
-                          color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.5),
+                          color: theme.colorScheme.surfaceContainerHighest
+                              .withValues(alpha: 0.5),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
                           ),
@@ -148,20 +154,25 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                                 const SizedBox(width: 12),
                                 Expanded(
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Text(
                                         'Resetting Password For',
-                                        style: theme.textTheme.labelMedium?.copyWith(
-                                          color: theme.colorScheme.onSurfaceVariant,
-                                        ),
+                                        style: theme.textTheme.labelMedium
+                                            ?.copyWith(
+                                              color: theme
+                                                  .colorScheme
+                                                  .onSurfaceVariant,
+                                            ),
                                       ),
                                       const SizedBox(height: 2),
                                       Text(
                                         widget.identifier,
-                                        style: theme.textTheme.bodyMedium?.copyWith(
-                                          fontWeight: FontWeight.bold,
-                                        ),
+                                        style: theme.textTheme.bodyMedium
+                                            ?.copyWith(
+                                              fontWeight: FontWeight.bold,
+                                            ),
                                       ),
                                     ],
                                   ),
@@ -215,8 +226,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                           enabled: !isLoading,
                           decoration: InputDecoration(
                             labelText: 'New Password',
-                            helperText:
-                                'Min 8 chars, at least 1 uppercase letter and 1 digit',
+                            helperText: 'Min 8 chars, at least 1 uppercase letter and 1 digit',
                             helperMaxLines: 2,
                             prefixIcon: const Icon(Icons.lock_outline),
                             border: const OutlineInputBorder(),

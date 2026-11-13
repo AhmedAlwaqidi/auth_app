@@ -9,4 +9,3 @@ class LoginRequest {
     this.rememberMe = false,
   });
 }
-

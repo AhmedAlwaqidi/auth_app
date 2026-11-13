@@ -17,4 +17,3 @@ abstract class AuthRepository {
   /// Resets the user's password using the pending reset code.
   Future<AuthResult> resetPassword(ResetPasswordRequest request);
 }
-

@@ -17,10 +17,7 @@ void main() {
 
     test('login with pre-seeded student succeeds', () async {
       final result = await repository.login(
-        const LoginRequest(
-          identifier: '202410101',
-          password: 'Password123',
-        ),
+        const LoginRequest(identifier: '202410101', password: 'Password123'),
       );
 
       expect(result.success, isTrue);
@@ -41,10 +38,7 @@ void main() {
 
     test('login with incorrect password fails', () async {
       final result = await repository.login(
-        const LoginRequest(
-          identifier: '202410101',
-          password: 'WrongPassword1',
-        ),
+        const LoginRequest(identifier: '202410101', password: 'WrongPassword1'),
       );
 
       expect(result.success, isFalse);
@@ -53,10 +47,7 @@ void main() {
 
     test('login with non-existent account fails', () async {
       final result = await repository.login(
-        const LoginRequest(
-          identifier: '999999999',
-          password: 'Password123',
-        ),
+        const LoginRequest(identifier: '999999999', password: 'Password123'),
       );
 
       expect(result.success, isFalse);
@@ -116,7 +107,9 @@ void main() {
 
     test('password recovery and reset flow updates user password', () async {
       // 1. Send code for existing account
-      final sendCodeResult = await repository.sendPasswordResetCode('202410101');
+      final sendCodeResult = await repository.sendPasswordResetCode(
+        '202410101',
+      );
       expect(sendCodeResult.success, isTrue);
 
       // 2. Submit wrong OTP
@@ -142,10 +135,7 @@ void main() {
 
       // 4. Verify login with old password fails
       final oldLoginResult = await repository.login(
-        const LoginRequest(
-          identifier: '202410101',
-          password: 'Password123',
-        ),
+        const LoginRequest(identifier: '202410101', password: 'Password123'),
       );
       expect(oldLoginResult.success, isFalse);
 
@@ -160,7 +150,9 @@ void main() {
     });
 
     test('send reset code for non-existent account fails', () async {
-      final result = await repository.sendPasswordResetCode('nonexistent@univ.edu');
+      final result = await repository.sendPasswordResetCode(
+        'nonexistent@univ.edu',
+      );
       expect(result.success, isFalse);
       expect(result.message, contains('No student account found'));
     });
@@ -187,10 +179,7 @@ void main() {
 
     test('successful login updates successMessage and lastResult', () async {
       final result = await controller.login(
-        const LoginRequest(
-          identifier: '202410101',
-          password: 'Password123',
-        ),
+        const LoginRequest(identifier: '202410101', password: 'Password123'),
       );
 
       expect(result.success, isTrue);
@@ -202,10 +191,7 @@ void main() {
 
     test('failed login updates errorMessage', () async {
       final result = await controller.login(
-        const LoginRequest(
-          identifier: '202410101',
-          password: 'WrongPassword',
-        ),
+        const LoginRequest(identifier: '202410101', password: 'WrongPassword'),
       );
 
       expect(result.success, isFalse);
@@ -216,10 +202,7 @@ void main() {
 
     test('clearMessages resets error and success messages', () async {
       await controller.login(
-        const LoginRequest(
-          identifier: '202410101',
-          password: 'WrongPassword',
-        ),
+        const LoginRequest(identifier: '202410101', password: 'WrongPassword'),
       );
       expect(controller.errorMessage, isNotNull);
 
@@ -229,4 +212,3 @@ void main() {
     });
   });
 }
-
